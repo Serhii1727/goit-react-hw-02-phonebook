@@ -1,8 +1,14 @@
-const ContactList = ({ visibleContacts, id }) => {
+const ContactList = ({ contacts }) => {
     return (
         <div>
             <ul>
-                {<li key={id}><p>{visibleContacts}</p></li>}
+                {contacts.map(({ name, number, id }) => (
+                    <li key={id}>
+                        <p>{name}</p>
+                        <p>{number}</p>
+                        <button type="button">Delete</button>
+                    </li>
+                ))}
             </ul>
         </div>
     )

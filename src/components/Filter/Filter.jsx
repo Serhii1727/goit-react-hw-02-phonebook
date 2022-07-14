@@ -1,11 +1,13 @@
+import { ContainerFilter, Input } from './Filter.styled'
+
 const Filter = ({ value, onChange }) => {
     return (
-        <div>
+        <ContainerFilter>
             <label htmlFor="">
                 Find contacts by name
-                <input type="text" value={value} onChange={onChange}></input>
+                <Input type="text" value={value} onChange={onChange}></Input>
             </label>
-        </div>
+        </ContainerFilter>
     )
 }
 

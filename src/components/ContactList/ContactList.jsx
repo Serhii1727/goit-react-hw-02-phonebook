@@ -1,13 +1,15 @@
+import { ItemList, Button } from "./ContactList.styled";
+
 const ContactList = ({ contacts }) => {
     return (
         <div>
             <ul>
                 {contacts.map(({ name, number, id }) => (
-                    <li key={id}>
+                    <ItemList className="ContactList-item" key={id}>
                         <p>{name}</p>
                         <p>{number}</p>
-                        <button type="button">Delete</button>
-                    </li>
+                        <Button type="button">Delete</Button>
+                    </ItemList>
                 ))}
             </ul>
         </div>

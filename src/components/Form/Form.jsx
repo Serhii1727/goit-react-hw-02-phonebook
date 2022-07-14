@@ -15,9 +15,22 @@ class ContactForm extends Component {
         })
     }
 
+    contactСheck = () => {
+
+
+    }
+
     handleSubmit = e => {
         e.preventDefault()
-        this.props.onSubmit(this.state.name, this.state.number)
+
+        const nameContacts = this.props.contacts.map(contact => contact.name)
+
+        if (nameContacts.includes(this.state.name)) {
+            alert(`${this.state.name} is already in contacts`)
+        } else {
+            this.props.onSubmit(this.state.name, this.state.number)
+        }
+
         this.reset()
     }
 
@@ -41,7 +54,7 @@ class ContactForm extends Component {
                 </label>
                 <label htmlFor="">
                     <Name>Number</Name>
-                    <input
+                    <Input
                         type="tel"
                         name="number"
                         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"

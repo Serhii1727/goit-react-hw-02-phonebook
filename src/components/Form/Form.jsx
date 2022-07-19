@@ -3,6 +3,15 @@ import PropTypes from 'prop-types';
 import { FormContact, Name, Input, Button } from "./Form.styled";
 
 class ContactForm extends Component {
+    static propTypes = {
+        contacts: PropTypes.arrayOf(PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            number: PropTypes.string.isRequired,
+            id: PropTypes.string.isRequired,
+        })),
+        onSubmit: PropTypes.func.isRequired
+    }
+
     state = {
         name: '',
         number: '',
@@ -74,11 +83,3 @@ class ContactForm extends Component {
 
 export default ContactForm;
 
-ContactForm.propTypes = {
-    contacts: PropTypes.array(PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        number: PropTypes.string.isRequired,
-        id: PropTypes.string.isRequired,
-    })),
-    onSubmit: PropTypes.func.isRequired
-}
